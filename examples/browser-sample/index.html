@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Muiditor browser sample</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="../../dist/muiditor-plugin.min.js"></script>
+    <style>
+        .App {
+            overflow: hidden;
+            height: 100%;
+            width: 100%;
+        }
+
+        #editor {
+            display: block;
+            background: #ffffff;
+            border: none;
+            height: 100vh;
+            width: 100vw;
+        }
+    </style>
+</head>
+<body>
+<div id="muiditor-plugin-container" class="App" />
+</body>
+<script>
+  var onData = (data) => {
+    console.log(data);
+  };
+  var onSaveComponent = (data, base64) => {
+    console.log(data, base64);
+  };
+  var muiEditor = new MuiditorPlugin({
+    uid: 'change_to_your_uid',
+    secret: 'change_to_your_secret',
+    container: 'muiditor-plugin-container',
+    onData,
+    onSaveComponent });
+  muiEditor
+    .getToken(muiEditor.config.uid || '', muiEditor.config.secret || '')
+    .then((token) => muiEditor.startEditor(token));
+</script>
+</html>

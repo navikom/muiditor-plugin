@@ -20,28 +20,28 @@ var MuiditorPlugin = /** @class */ (function () {
         var _this = this;
         this.onMessage = function (event) {
             var data = JSON.parse(event.data);
-            console.log('MuiditorPlugin receiveMessage', data, event.origin);
             if (event.origin !== exports.URL) {
                 return;
             }
+            var payload = data[1];
             switch (data[0]) {
                 case MuiditorPlugin.LISTENER_ON_DATA:
-                    _this.config.onData && _this.config.onData(data[1]);
+                    _this.config.onData && _this.config.onData(payload);
                     break;
                 case MuiditorPlugin.LISTENER_ON_ERROR:
-                    _this.config.onError && _this.config.onError(data[1]);
+                    _this.config.onError && _this.config.onError(payload);
                     break;
                 case MuiditorPlugin.LISTENER_ON_SAVE_PROJECT:
-                    _this.config.onSaveProject && _this.config.onSaveProject(data[1]);
+                    _this.config.onSaveProject && _this.config.onSaveProject(payload);
                     break;
                 case MuiditorPlugin.LISTENER_ON_SAVE_COMPONENT:
-                    _this.config.onSaveComponent && _this.config.onSaveComponent(data[1].component, data[1].base64);
+                    _this.config.onSaveComponent && _this.config.onSaveComponent(payload[0], payload[1]);
                     break;
                 case MuiditorPlugin.LISTENER_ON_SWITCH_ORIENTATION:
-                    _this.config.onSwitchOrientation && _this.config.onSwitchOrientation(data[1]);
+                    _this.config.onSwitchOrientation && _this.config.onSwitchOrientation(payload);
                     break;
                 case MuiditorPlugin.LISTENER_ON_SWITCH_OS:
-                    _this.config.onSwitchOS && _this.config.onSwitchOS(data[1]);
+                    _this.config.onSwitchOS && _this.config.onSwitchOS(payload);
                     break;
             }
         };
@@ -70,7 +70,14 @@ var MuiditorPlugin = /** @class */ (function () {
         this.postMessage.apply(this, __spreadArrays([action], rest));
     };
     MuiditorPlugin.prototype.getToken = function (uid, secret) {
-        return fetch(PLUGIN_URL + "/" + uid + "/" + secret).then(function (response) { return response.text(); });
+        var config = {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded'
+            },
+            body: "grant_type=password&uid=" + uid + "&secret=" + secret
+        };
+        return fetch(new Request(PLUGIN_URL, config)).then(function (response) { return response.text(); });
     };
     MuiditorPlugin.prototype.startEditor = function (token) {
         var container = document.getElementById(this.config.container);
