@@ -24,7 +24,7 @@ It's free to use on [http://localhost:3000/editor](http://localhost:3000/editor)
 ### Installation - Browser
 
 ```html
-<script src="https://unpkg.com/muiditor-plugin@1.2.0/dist/muiditor-plugin.min.js"></script>
+<script src="https://unpkg.com/muiditor-plugin@1.3.0/dist/muiditor-plugin.min.js"></script>
 ```
 
 [HTML example](./examples/browser-sample/index.html)
