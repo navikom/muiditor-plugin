@@ -1,6 +1,6 @@
 {
   "name": "muiditor-plugin",
-  "version": "1.3.0",
+  "version": "1.4.0",
   "description": "Muiditor editor plugin",
   "browser": "dist/muiditor-plugin.min.js",
   "main": "dist/index.js",
@@ -8,12 +8,7 @@
     "type": "git",
     "url": "git+https://github.com/navikom/muiditor-plugin.git"
   },
-  "keywords": [
-    "Mobile ui",
-    "embedded ui editor",
-    "Mobile ui editor",
-    "Mobile ui viewer"
-  ],
+  "keywords": [],
   "bugs": {
     "url": "https://github.com/navikom/muiditor-plugin/issues"
   },
@@ -31,7 +26,6 @@
     "rollup": "rollup -c",
     "test-build": "npm run build && node test-build.js"
   },
-  "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
