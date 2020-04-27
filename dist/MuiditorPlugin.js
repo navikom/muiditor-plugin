@@ -80,10 +80,16 @@ var MuiditorPlugin = /** @class */ (function () {
         return fetch(new Request(PLUGIN_URL, config)).then(function (response) { return response.text(); });
     };
     MuiditorPlugin.prototype.startEditor = function (token) {
+        this.makeFrame(token, MuiditorPlugin.TYPE_EDITOR);
+    };
+    MuiditorPlugin.prototype.startViewer = function (token) {
+        this.makeFrame(token, MuiditorPlugin.TYPE_VIEWER);
+    };
+    MuiditorPlugin.prototype.makeFrame = function (token, type) {
         var container = document.getElementById(this.config.container);
         var frame = document.createElement('iframe');
-        frame.src = exports.URL + "/editor?token=" + token;
-        frame.id = 'editor';
+        frame.src = exports.URL + "/" + type + "?token=" + token;
+        frame.id = type;
         window.addEventListener('message', this.onMessage, false);
         container && container.appendChild(frame);
         this.frame = frame;
@@ -111,6 +117,8 @@ var MuiditorPlugin = /** @class */ (function () {
     MuiditorPlugin.FRAME_PRO_ACTION_SWITCH_AUTO_SAVE = 'switch_auto_save';
     MuiditorPlugin.FRAME_PRO_ACTION_SET_PROJECT = 'set_project';
     MuiditorPlugin.FRAME_PRO_ACTION_MAKE_SCREENSHOT = 'make_screenshot';
+    MuiditorPlugin.TYPE_EDITOR = 'editor';
+    MuiditorPlugin.TYPE_VIEWER = 'viewer';
     return MuiditorPlugin;
 }());
 exports["default"] = MuiditorPlugin;

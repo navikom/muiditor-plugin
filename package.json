@@ -4,6 +4,20 @@
   "description": "Muiditor editor plugin",
   "browser": "dist/muiditor-plugin.min.js",
   "main": "dist/index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/navikom/muiditor-plugin.git"
+  },
+  "keywords": [
+    "Mobile ui",
+    "embedded ui editor",
+    "Mobile ui editor",
+    "Mobile ui viewer"
+  ],
+  "bugs": {
+    "url": "https://github.com/navikom/muiditor-plugin/issues"
+  },
+  "homepage": "https://github.com/navikom/muiditor-plugin#readme",
   "files": [
     "dist"
   ],

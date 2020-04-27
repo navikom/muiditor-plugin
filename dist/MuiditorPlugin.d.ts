@@ -39,6 +39,8 @@ declare class MuiditorPlugin {
     static FRAME_PRO_ACTION_SWITCH_AUTO_SAVE: string;
     static FRAME_PRO_ACTION_SET_PROJECT: string;
     static FRAME_PRO_ACTION_MAKE_SCREENSHOT: string;
+    static TYPE_EDITOR: string;
+    static TYPE_VIEWER: string;
     config: IMuiConfig;
     frame?: HTMLIFrameElement;
     constructor(config: IMuiConfig);
@@ -54,6 +56,8 @@ declare class MuiditorPlugin {
     })[]): void;
     getToken(uid: string, secret: string): Promise<string>;
     startEditor(token: string | null): void;
+    startViewer(token: string | null): void;
+    makeFrame(token: string, type: typeof MuiditorPlugin.TYPE_EDITOR | typeof MuiditorPlugin.TYPE_VIEWER): void;
     onMessage: (event: MessageEvent) => void;
     postMessage(action: string, ...message: (string | {
         [key: string]: any;
