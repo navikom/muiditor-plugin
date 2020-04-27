@@ -21,19 +21,32 @@ function App() {
       uid: 'change_to_your_uid',
       secret: 'change_to_your_secret',
       container: 'muiditor-plugin-container',
+      data: {/* initial project data */},
       onData})
   );
+
+  const projectData = {/*here is a project data*/};
+
+  const setProjectData = (project: {[key: string]: any}) => {
+    muiEditor.setProject(project);
+  };
 
   React.useEffect(() => {
     muiEditor
       .getToken(muiEditor.config.uid || "", muiEditor.config.secret || "")
-      .then((token) => muiEditor.startEditor(token));
+      .then((token) => {
+        // muiEditor.startViewer(token); if you want to start Viewer
+        muiEditor.startEditor(token);
+      });
     return () => {
       muiEditor.dispose();
     }
   }, [muiEditor]);
   return (
-    <div id="muiditor-plugin-container" />
+    <React.Fragment>
+      <div id="muiditor-plugin-container" />
+      <button onClick={setProjectData}>Set Another Project</button>
+    </React.Fragment>
   );
 }
 

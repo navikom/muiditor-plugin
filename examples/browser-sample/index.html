@@ -23,6 +23,7 @@
 </head>
 <body>
 <div id="muiditor-plugin-container" class="App" />
+<button id="btn">Set Another Project</button>
 </body>
 <script>
   var onData = (data) => {
@@ -31,14 +32,30 @@
   var onSaveComponent = (data, base64) => {
     console.log(data, base64);
   };
+
+  var projectData = {/*here is a project data*/};
+
+  var setProjectData = (project) => {
+    muiEditor.setProject(project);
+  };
+
+  document.getElementById('btn').onclick = () => {
+    setProjectData(projectData);
+  };
+
   var muiEditor = new MuiditorPlugin({
     uid: 'change_to_your_uid',
     secret: 'change_to_your_secret',
     container: 'muiditor-plugin-container',
+    data: {/* initial project data */},
     onData,
     onSaveComponent });
+
   muiEditor
     .getToken(muiEditor.config.uid || '', muiEditor.config.secret || '')
-    .then((token) => muiEditor.startEditor(token));
+    .then((token) => {
+      // muiEditor.startViewer(token); if you want to start Viewer
+      muiEditor.startEditor(token);
+    });
 </script>
 </html>
