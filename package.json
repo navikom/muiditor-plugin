@@ -2,9 +2,9 @@
   "name": "muiditor-plugin",
   "version": "1.5.1",
   "description": "Muiditor editor plugin",
-  "browser": "dist/muiditor-plugin.min.js",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "browser": "muiditor-plugin.min.js",
+  "main": "index.js",
+  "types": "index.d.ts",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/navikom/muiditor-plugin.git"
@@ -15,9 +15,11 @@
   },
   "homepage": "https://github.com/navikom/muiditor-plugin#readme",
   "files": [
-    "dist",
     "index.js",
-    "index.d.ts"
+    "index.d.ts",
+    "muiditor-plugin.min.js",
+    "MuiditorPlugin.d.ts",
+    "MuiditorPlugin.js"
   ],
   "scripts": {
     "build": "tsc --declaration",
