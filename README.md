@@ -1,5 +1,5 @@
 # MUIDITOR Plugin Wrapper
-### A simple module to use [Editor](http://localhost:3000/editor)
+### A simple module to use [Editor](https://www.muiditor.com/editor)
 
 ## What is MUIDITOR?
 It's a drag & drop editor to build Mobile UI. It makes it easy and quick to create Mobile UI screens and components.
@@ -8,14 +8,14 @@ You can embed it into your application :) Using with the MUIDITOR free version, 
 
 ## How to use it
 
-* go to the [MUIDITOR homepage](http://localhost:3000/signup)
+* go to the [MUIDITOR homepage](https://www.muiditor.com/signup)
 * sign up with the free plan
 * create your application
 * get the uid and the secret
 
 ## Demo
 
-It's free to use on [http://localhost:3000/editor](http://localhost:3000/editor): you don't even need to create an account of any kind.
+It's free to use on [https://www.muiditor.com/editor](https://www.muiditor.com/editor): you don't even need to create an account of any kind.
 
 ## How to use this module for your own
 

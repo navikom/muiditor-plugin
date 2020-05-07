@@ -1,6 +1,7 @@
 .idea
 
 src/
+!examples/react-sample/src
 test/
 node_modules/
 
