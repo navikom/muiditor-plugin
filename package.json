@@ -1,6 +1,6 @@
 {
   "name": "muiditor-plugin",
-  "version": "1.5.0",
+  "version": "1.5.1",
   "description": "Muiditor editor plugin",
   "browser": "dist/muiditor-plugin.min.js",
   "main": "dist/index.js",
