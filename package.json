@@ -3,7 +3,8 @@
   "version": "1.4.1",
   "description": "Muiditor editor plugin",
   "browser": "dist/muiditor-plugin.min.js",
-  "main": "index.js",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/navikom/muiditor-plugin.git"
@@ -15,19 +16,21 @@
   "homepage": "https://github.com/navikom/muiditor-plugin#readme",
   "files": [
     "dist",
-    "index.js"
+    "index.js",
+    "index.d.ts"
   ],
   "scripts": {
     "build": "tsc --declaration",
     "test": "jest",
-    "ci": "(npm run test-build && npm run rollup) & npm t & wait",
+    "ci": "(npm run clean && npm run test-build && npm run rollup) & npm t & wait",
     "prepublishOnly": "npm run ci && npm run rollup",
     "preversion": "./preversion.sh",
     "version": "./version.sh",
     "rollup": "rollup -c",
-    "test-build": "npm run build && node test-build.js"
+    "test-build": "npm run build && node test-build.js",
+    "clean": "rm -rf dist"
   },
-  "author": "",
+  "author": "navikom",
   "license": "ISC",
   "devDependencies": {
     "@types/jest": "^25.2.1",

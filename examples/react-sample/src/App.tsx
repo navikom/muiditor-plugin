@@ -17,7 +17,7 @@ function App() {
   React.useEffect(() => {
     muiEditor
       .getToken(muiEditor.config.uid || "", muiEditor.config.secret || "")
-      .then((token) => muiEditor.startViewer(token));
+      .then((token: string) => muiEditor.startEditor(token));
     return () => {
       muiEditor.dispose();
     }

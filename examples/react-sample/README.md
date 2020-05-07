@@ -10,7 +10,7 @@ yarn add muiditor-plugin
 ## React component with typescript
 ```js
 import React from 'react';
-import MuiditorPlugin from 'muiditor-plugin/dist';
+import MuiditorPlugin from 'muiditor-plugin';
 
 function App() {
   const onData = (data: {[key: string]: any}) => {
@@ -34,7 +34,7 @@ function App() {
   React.useEffect(() => {
     muiEditor
       .getToken(muiEditor.config.uid || "", muiEditor.config.secret || "")
-      .then((token) => {
+      .then((token: string) => {
         // muiEditor.startViewer(token); if you want to start Viewer
         muiEditor.startEditor(token);
       });
