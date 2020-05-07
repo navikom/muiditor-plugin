@@ -2,7 +2,7 @@
   "name": "muiditor-plugin",
   "version": "1.6.1",
   "description": "Muiditor editor plugin",
-  "browser": "muiditor-plugin.min.js",
+  "browser": "dist/muiditor-plugin.min.js",
   "main": "index.js",
   "types": "index.d.ts",
   "repository": {
