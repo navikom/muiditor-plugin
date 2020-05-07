@@ -1,6 +1,6 @@
 {
   "name": "muiditor-plugin",
-  "version": "1.4.2",
+  "version": "1.5.0",
   "description": "Muiditor editor plugin",
   "browser": "dist/muiditor-plugin.min.js",
   "main": "dist/index.js",
@@ -23,12 +23,12 @@
     "build": "tsc --declaration",
     "test": "jest",
     "ci": "(npm run clean && npm run test-build && npm run rollup) & npm t & wait",
-    "prepublishOnly": "npm run ci && npm run rollup",
     "preversion": "./preversion.sh",
     "version": "./version.sh",
     "rollup": "rollup -c",
     "test-build": "npm run build && node test-build.js",
-    "clean": "rm -rf dist"
+    "clean": "rm -rf dist",
+    "publish": "copy /Y package.json dist && copy /Y readme.md dist && cd dist && npm publish"
   },
   "author": "navikom",
   "license": "ISC",
