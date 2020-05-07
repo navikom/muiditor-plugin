@@ -25,7 +25,7 @@ interface IMuiConfig {
     onSwitchOS?: (os: 'ios' | 'android') => void;
     onSwitchOrientation?: (orientation: 'portrait' | 'landscape') => void;
 }
-export declare const URL = "http://localhost:3000";
+export declare const URL = "https://muiditor.com";
 declare class MuiditorPlugin {
     static LISTENER_ON_DATA: string;
     static LISTENER_ON_SAVE_PROJECT: string;

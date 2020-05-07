@@ -3,7 +3,7 @@
   "version": "1.4.0",
   "description": "Muiditor editor plugin",
   "browser": "dist/muiditor-plugin.min.js",
-  "main": "dist/index.js",
+  "main": "index.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/navikom/muiditor-plugin.git"
@@ -14,7 +14,8 @@
   },
   "homepage": "https://github.com/navikom/muiditor-plugin#readme",
   "files": [
-    "dist"
+    "dist",
+    "index.js"
   ],
   "scripts": {
     "build": "tsc --declaration",
