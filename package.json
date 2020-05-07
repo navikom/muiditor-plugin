@@ -28,7 +28,7 @@
     "rollup": "rollup -c",
     "test-build": "npm run build && node test-build.js",
     "clean": "rm -rf dist",
-    "publish": "copy /Y package.json dist && copy /Y readme.md dist && cd dist && npm publish"
+    "dist": "cp package.json ./dist/ && cp readme.md ./dist/ && cd dist && npm publish"
   },
   "author": "navikom",
   "license": "ISC",
