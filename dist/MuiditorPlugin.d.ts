@@ -1,6 +1,5 @@
 interface IMuiConfig {
     container: string;
-    autosave?: boolean;
     titleLink?: string;
     title?: string;
     uid?: string;
@@ -27,6 +26,7 @@ interface IMuiConfig {
 }
 export declare const URL = "https://muiditor.com";
 declare class MuiditorPlugin {
+    static FRAME_READY: string;
     static LISTENER_ON_DATA: string;
     static LISTENER_ON_SAVE_PROJECT: string;
     static LISTENER_ON_SAVE_COMPONENT: string;
@@ -55,8 +55,8 @@ declare class MuiditorPlugin {
         [key: string]: any;
     })[]): void;
     getToken(uid: string, secret: string): Promise<string>;
-    startEditor(token: string | null): void;
-    startViewer(token: string | null): void;
+    startEditor(token: string): void;
+    startViewer(token: string): void;
     makeFrame(token: string, type: typeof MuiditorPlugin.TYPE_EDITOR | typeof MuiditorPlugin.TYPE_VIEWER): void;
     onMessage: (event: MessageEvent) => void;
     postMessage(action: string, ...message: (string | {

@@ -11,7 +11,6 @@ var PLUGIN_URL = 'https://api.muiditor.com/v1/plugin/token';
 exports.URL = 'https://muiditor.com';
 var commonConfig = {
     container: 'muiditor-plugin',
-    autosave: false,
     uid: 'client_uid',
     secret: 'client_secret'
 };
@@ -25,6 +24,9 @@ var MuiditorPlugin = /** @class */ (function () {
             }
             var payload = data[1];
             switch (data[0]) {
+                case MuiditorPlugin.FRAME_READY:
+                    _this.performAction(MuiditorPlugin.FRAME_DATA_CONFIG, _this.config);
+                    break;
                 case MuiditorPlugin.LISTENER_ON_DATA:
                     _this.config.onData && _this.config.onData(payload);
                     break;
@@ -80,9 +82,17 @@ var MuiditorPlugin = /** @class */ (function () {
         return fetch(new Request(PLUGIN_URL, config)).then(function (response) { return response.text(); });
     };
     MuiditorPlugin.prototype.startEditor = function (token) {
+        if (!token.length) {
+            alert('The token is empty');
+            return;
+        }
         this.makeFrame(token, MuiditorPlugin.TYPE_EDITOR);
     };
     MuiditorPlugin.prototype.startViewer = function (token) {
+        if (!token.length) {
+            alert('The token is empty');
+            return;
+        }
         this.makeFrame(token, MuiditorPlugin.TYPE_VIEWER);
     };
     MuiditorPlugin.prototype.makeFrame = function (token, type) {
@@ -93,18 +103,19 @@ var MuiditorPlugin = /** @class */ (function () {
         window.addEventListener('message', this.onMessage, false);
         container && container.appendChild(frame);
         this.frame = frame;
-        this.performAction(MuiditorPlugin.FRAME_DATA_CONFIG, this.config);
     };
     MuiditorPlugin.prototype.postMessage = function (action) {
         var message = [];
         for (var _i = 1; _i < arguments.length; _i++) {
             message[_i - 1] = arguments[_i];
         }
+        console.log('postMessage=======', action);
         this.frame && this.frame.contentWindow.postMessage(JSON.stringify(__spreadArrays([action], message)), '*');
     };
     MuiditorPlugin.prototype.dispose = function () {
         window.removeEventListener('message', this.onMessage, false);
     };
+    MuiditorPlugin.FRAME_READY = 'frame_ready';
     MuiditorPlugin.LISTENER_ON_DATA = 'editor_on_data';
     MuiditorPlugin.LISTENER_ON_SAVE_PROJECT = 'editor_on_save_project';
     MuiditorPlugin.LISTENER_ON_SAVE_COMPONENT = 'editor_on_save_component';
