@@ -7,12 +7,12 @@ var __spreadArrays = (this && this.__spreadArrays) || function () {
     return r;
 };
 exports.__esModule = true;
-var PLUGIN_URL = 'https://api.muiditor.com/plugin/token';
+var PLUGIN_URL = 'https://api.muiditor.com/v1/plugin/token';
 exports.URL = 'https://muiditor.com';
 var commonConfig = {
     container: 'muiditor-plugin',
     autosave: false,
-    uid: 'client_uid_',
+    uid: 'client_uid',
     secret: 'client_secret'
 };
 var MuiditorPlugin = /** @class */ (function () {
