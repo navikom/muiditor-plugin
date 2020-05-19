@@ -24,7 +24,7 @@ It's free to use on [https://www.muiditor.com/editor](https://www.muiditor.com/e
 ### Installation - Browser
 
 ```html
-<script src="https://unpkg.com/muiditor-plugin@1.6.3/dist/muiditor-plugin.min.js"></script>
+<script src="https://unpkg.com/muiditor-plugin@1.7.0/dist/muiditor-plugin.min.js"></script>
 ```
 
 [HTML example](./examples/browser-sample/index.html)
