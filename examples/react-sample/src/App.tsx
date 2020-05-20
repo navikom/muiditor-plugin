@@ -3,15 +3,18 @@ import './App.css';
 import MuiditorPlugin from 'muiditor-plugin';
 
 function App() {
-  const onData = (data: { [key: string]: any }) => {
-    console.log(data);
+  const onLoad = (payload: { ios: boolean; portrait: boolean; autoSave: boolean }) => {
+    console.log(payload);
+  }
+  const onData = (payload: { [key: string]: any }) => {
+    console.log(payload);
   };
   const [muiEditor] = React.useState(
     new MuiditorPlugin({
       uid: 'your_client_uid',
       secret: 'your_client_secret',
       container: 'muiditor-plugin-container',
-      hideHeader: true,
+      onLoad,
       onData
     })
   );

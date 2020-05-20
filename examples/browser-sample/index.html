@@ -26,6 +26,9 @@
 <button id="btn">Set Another Project</button>
 </body>
 <script>
+  var onLoad = (data) => {
+    console.log(data);
+  };
   var onData = (data) => {
     console.log(data);
   };
@@ -42,6 +45,7 @@
     secret: 'change_to_your_secret',
     container: 'muiditor-plugin-container',
     data: {/* initial project data */},
+    onLoad,
     onData,
     onSaveComponent });
 
