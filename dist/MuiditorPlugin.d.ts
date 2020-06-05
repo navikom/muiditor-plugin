@@ -11,6 +11,11 @@ interface IMuiConfig {
     data?: {
         [key: string]: any;
     };
+    onLoad?: (payload: {
+        ios: boolean;
+        portrait: boolean;
+        autoSave: boolean;
+    }) => void;
     onData?: (data: {
         [key: string]: any;
     }) => void;

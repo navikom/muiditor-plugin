@@ -25,6 +25,7 @@ var MuiditorPlugin = /** @class */ (function () {
             var payload = data[1];
             switch (data[0]) {
                 case MuiditorPlugin.FRAME_READY:
+                    _this.config.onLoad && _this.config.onLoad(payload);
                     _this.performAction(MuiditorPlugin.FRAME_DATA_CONFIG, _this.config);
                     break;
                 case MuiditorPlugin.LISTENER_ON_DATA:
@@ -109,7 +110,6 @@ var MuiditorPlugin = /** @class */ (function () {
         for (var _i = 1; _i < arguments.length; _i++) {
             message[_i - 1] = arguments[_i];
         }
-        console.log('postMessage=======', action);
         this.frame && this.frame.contentWindow.postMessage(JSON.stringify(__spreadArrays([action], message)), '*');
     };
     MuiditorPlugin.prototype.dispose = function () {

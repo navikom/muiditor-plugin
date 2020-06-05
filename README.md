@@ -3,6 +3,7 @@
 
 ## What is MUIDITOR?
 It's a drag & drop editor to build Mobile UI. It makes it easy and quick to create Mobile UI screens and components.
+![Product Presentation Image](https://muiditor-plugin.s3.amazonaws.com/laptop-basics-3.png)
 
 You can embed it into your application :) Using with the MUIDITOR free version, you can embed the editor and viewer anywhere, regardless of the pricing model.
 
